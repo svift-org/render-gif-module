@@ -1,5 +1,4 @@
 var GIFEncoder = require('gifencoder');
-var Canvas = require('canvas');
 var fs = require('fs');
 var PNG = require('png-js');
 
