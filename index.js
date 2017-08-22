@@ -55,10 +55,11 @@ var render = (function () {
       console.log(render_folder+'/png/'+files[count])
       fs.readFile(render_folder+'/png/'+files[count], function(err, data){
         png_file = new PNG(data);
-        png_file.decode(function (pixels) {
+        /*png_file.decode(function (pixels) {
           encoder.addFrame(pixels)
           module.nextFile()
-        })
+        })*/
+        module.nextFile()
       })
 
     }else{
