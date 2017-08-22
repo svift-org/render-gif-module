@@ -10,6 +10,7 @@ var GIFEncoder = require('gifencoder'),
   fs = require('fs'),
   PNG = require('png-js'),
   fast = require('fast-png'),
+  upng = require('upng-js'),
   pngparse = require('pngparse')
 
 var render = (function () {
@@ -55,30 +56,33 @@ var render = (function () {
   module.addFiles = function(){
     if((files[count].split('.'))[1] == 'png'){
       console.log(render_folder+'/png/'+files[count])
-      /*fs.readFile(render_folder+'/png/'+files[count], function(err, data){
+      fs.readFile(render_folder+'/png/'+files[count], function(err, data){
         //png_file = new PNG(data);
         /*png_file.decode(function (pixels) {
           encoder.addFrame(pixels)
           module.nextFile()
-        })
+        })*/
         //png_file = fast.decode(data)
         //encoder.addFrame(png_file)
 
+        imgObj = upng.decode(data)
+        encoder.addFrame(imgObj.data)
+
         module.nextFile()
-      })*/
+      })
 
       /*PNG.decode(render_folder+'/png/'+files[count], function(pixels){
         encoder.addFrame(pixels)
         module.nextFile()
       })*/
 
-      pngparse.parseFile(render_folder+'/png/'+files[count], function(err, data) {
+      /*pngparse.parseFile(render_folder+'/png/'+files[count], function(err, data) {
         if(err)
           throw err
-        
+
         encoder.addFrame(data)
         module.nextFile()
-      })
+      })*/
 
     }else{
       module.nextFile()
