@@ -52,7 +52,7 @@ var render = (function () {
     //encoder.setQuality(1); // image quality. 10 is default.
     //encoder.setTransparent(0xFFFFFF)
 
-    gmo = Gm();
+    gmo = gm();
 
     count = 0
     files = fs.readdirSync(folder + '/png')
