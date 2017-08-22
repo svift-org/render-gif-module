@@ -8,7 +8,8 @@
 
 var GIFEncoder = require('gifencoder'),
   fs = require('fs'),
-  PNG = require('png-js')
+  PNG = require('png-js'),
+  fast = require('fast-png')
 
 var render = (function () {
  
@@ -54,11 +55,13 @@ var render = (function () {
     if((files[count].split('.'))[1] == 'png'){
       console.log(render_folder+'/png/'+files[count])
       fs.readFile(render_folder+'/png/'+files[count], function(err, data){
-        png_file = new PNG(data);
+        //png_file = new PNG(data);
         /*png_file.decode(function (pixels) {
           encoder.addFrame(pixels)
           module.nextFile()
         })*/
+        png_file = fast.decode(data)
+        
         module.nextFile()
       })
 
