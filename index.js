@@ -65,7 +65,7 @@ var render = (function () {
         //png_file = fast.decode(data)
         //encoder.addFrame(png_file)
 
-        imgObj = upng.decode(data)
+        var imgObj = upng.decode(data)
         encoder.addFrame(imgObj.data)
 
         module.nextFile()
