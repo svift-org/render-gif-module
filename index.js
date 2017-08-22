@@ -61,7 +61,8 @@ var render = (function () {
           module.nextFile()
         })*/
         png_file = fast.decode(data)
-        
+        encoder.addFrame(png_file)
+
         module.nextFile()
       })
 
