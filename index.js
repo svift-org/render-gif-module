@@ -10,7 +10,7 @@ var GIFEncoder = require('gifencoder'),
   fs = require('fs'),
   PNG = require('png-js'),
   fast = require('fast-png'),
-  parse = require('pngparse')
+  pngparse = require('pngparse')
 
 var render = (function () {
  
