@@ -17,6 +17,7 @@
     "fast-png": "^3.1.0",
     "fs": "0.0.1-security",
     "gifencoder": "^1.1.0",
+    "gm": "^1.23.0",
     "png-js": "^0.1.1",
     "pngparse": "^2.0.1",
     "upng-js": "^1.0.0"
