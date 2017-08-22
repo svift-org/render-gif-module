@@ -51,7 +51,7 @@ var render = (function () {
 
   module.addFiles = function(){
     if((files[count].split('.'))[1] == 'png'){
-
+      console.log(render_folder+'/gif/'+files[count])
       fs.readFile(render_folder+'/gif/'+files[count], function(err, data){
         var myimage = new PNG(data);
           myimage.decode(function (pixels) {
