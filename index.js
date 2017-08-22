@@ -40,7 +40,7 @@ var render = (function () {
     encoder.start();
     encoder.setRepeat(-1);   // 0 for repeat, -1 for no-repeat
     encoder.setDelay(1000/30);  // frame delay in ms
-    encoder.setQuality(1); // image quality. 10 is default.
+    encoder.setQuality(10); // image quality. 10 is default.
     //encoder.setTransparent(0xFFFFFF)
 
     count = 0
