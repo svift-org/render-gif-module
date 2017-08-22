@@ -113,9 +113,8 @@ var render = (function () {
         .write(png_file, function(err){
           if (err) throw err;
           console.log("animated.gif created");
+          render_callback()
         });
-
-      render_callback()
     }
   }
 
