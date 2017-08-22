@@ -8,7 +8,7 @@
 
 var GIFEncoder = require('gifencoder'),
   fs = require('fs'),
-  gif = require('gif'),
+  //gif = require('gif'),
   PNG = require('png-js'),
   fast = require('fast-png'),
   upng = require('upng-js'),
