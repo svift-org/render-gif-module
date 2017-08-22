@@ -72,7 +72,7 @@ var render = (function () {
         module.nextFile()
       })*/
 
-      pngparse.parseFile("path/to/file.png", function(err, data) {
+      pngparse.parseFile(render_folder+'/png/'+files[count], function(err, data) {
         if(err)
           throw err
         
