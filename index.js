@@ -54,15 +54,19 @@ var render = (function () {
   module.addFiles = function(){
     if((files[count].split('.'))[1] == 'png'){
       console.log(render_folder+'/png/'+files[count])
-      fs.readFile(render_folder+'/png/'+files[count], function(err, data){
+      /*fs.readFile(render_folder+'/png/'+files[count], function(err, data){
         //png_file = new PNG(data);
-        /*png_file.decode(function (pixels) {
+        png_file.decode(function (pixels) {
           encoder.addFrame(pixels)
           module.nextFile()
-        })*/
-        png_file = fast.decode(data)
-        encoder.addFrame(png_file)
+        })
+        //png_file = fast.decode(data)
+        //encoder.addFrame(png_file)
 
+        module.nextFile()
+      })*/
+      PNG.decode(render_folder+'/png/'+files[count], function(pixels){
+        encoder.addFrame(pixels)
         module.nextFile()
       })
 
