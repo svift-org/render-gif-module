@@ -17,7 +17,8 @@ var render = (function () {
     render_callback,
     files,
     count,
-    render_folder
+    render_folder,
+    png_file
 
   /**
   * Initiate the rendering process by sending a data object containing params, vis and data (see data/example.json for structure)
@@ -40,7 +41,7 @@ var render = (function () {
     encoder.start();
     encoder.setRepeat(-1);   // 0 for repeat, -1 for no-repeat
     encoder.setDelay(1000/30);  // frame delay in ms
-    encoder.setQuality(10); // image quality. 10 is default.
+    encoder.setQuality(1); // image quality. 10 is default.
     //encoder.setTransparent(0xFFFFFF)
 
     count = 0
@@ -53,11 +54,11 @@ var render = (function () {
     if((files[count].split('.'))[1] == 'png'){
       console.log(render_folder+'/png/'+files[count])
       fs.readFile(render_folder+'/png/'+files[count], function(err, data){
-        var myimage = new PNG(data);
-          myimage.decode(function (pixels) {
-            encoder.addFrame(pixels)
-            module.nextFile()
-          })
+        png_file = new PNG(data);
+        png_file.decode(function (pixels) {
+          encoder.addFrame(pixels)
+          module.nextFile()
+        })
       })
 
     }else{
