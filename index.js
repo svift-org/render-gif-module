@@ -54,7 +54,7 @@ var render = (function () {
 
     gmo = gm()
       .in(render_folder + '/png/*.png')
-      .delay(100)
+      .delay(100/30)
       .resize(500,500)
       .write(png_file, function(err){
         if (err) throw err;
