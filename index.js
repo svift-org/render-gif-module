@@ -52,12 +52,20 @@ var render = (function () {
     //encoder.setQuality(1); // image quality. 10 is default.
     //encoder.setTransparent(0xFFFFFF)
 
-    gmo = gm();
+    gmo = gm()
+      .in(render_folder + '/png/*.png')
+      .delay(100)
+      .resize(500,500)
+      .write(png_file, function(err){
+        if (err) throw err;
+        console.log("animated.gif created");
+        render_callback()
+      });
 
-    count = 0
+    /*count = 0
     files = fs.readdirSync(folder + '/png')
 
-    module.addFiles()
+    module.addFiles()*/
   }
 
   module.addFiles = function(){
