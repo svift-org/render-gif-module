@@ -8,11 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/svift/render-gif-module.git"
+    "url": "git+https://git@github.com/svift-org/render-gif-module.git"
   },
   "author": "Sebastian Meier",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/svift/render-gif-module#readme",
+  "homepage": "https://github.com/svift-org/render-gif-module#readme",
   "dependencies": {
     "fs": "0.0.1-security",
     "gm": "^1.23.0"
