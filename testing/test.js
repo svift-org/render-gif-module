@@ -13,7 +13,7 @@ fs.readdir('./png', (err, items) => {
 console.log(new Date().getTime() - start)
 start = new Date().getTime()
 
-im.convert(['-loop', '1', '-delay', '6', './png/*.png', '-delay', '300', './png/100.png', 'im_test.gif'], function (err, stdout) {
+im.convert(['-limit', 'memory', '128mb', '-loop', '1', '-delay', '6', './png/*.png', '-delay', '300', './png/100.png', 'im_test.gif'], function (err, stdout) {
   if (err) throw err;
   console.log(new Date().getTime() - start)
 });
