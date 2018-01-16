@@ -15,6 +15,6 @@
   "homepage": "https://github.com/svift-org/render-gif-module#readme",
   "dependencies": {
     "fs": "0.0.1-security",
-    "gm": "^1.23.0"
+    "imagemagick": "^0.1.3"
   }
 }

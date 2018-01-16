@@ -7,7 +7,7 @@
 'use strict';
 
 var fs = require('fs'),
-  gm = require('gm')
+  im = require('imagemagick')
 
 var render = (function () {
  
@@ -27,15 +27,12 @@ var render = (function () {
     var split = folder.split('/'),
       name = split[split.length-1]
 
-    gm()
-      .in(folder + '/png/*.png')
-      .delay(100/30)
-      .loop(1)
-      .resize(500,500)
-      .write(folder + '/' + name + '.gif', function(err){
+    fs.readdir('./png', (err, items) => {
+      im.convert(['-loop', 1, '-delay', 100/30, folder+'/png/*.png', '-delay', 250, folder+'/png/'+items[items.length-1]+'.png', folder + '/' + name + '.gif'], function (err, stdout) {
         if (err) throw err;
         render_callback()
       });
+    })
 
   }
 
