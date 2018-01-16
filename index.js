@@ -27,7 +27,7 @@ var render = (function () {
     var split = folder.split('/'),
       name = split[split.length-1]
 
-    fs.readdir('./png', (err, items) => {
+    fs.readdir(folder+'/png/', (err, items) => {
       im.convert(['-loop', 1, '-delay', 100/30, folder+'/png/*.png', '-delay', 250, folder+'/png/'+items[items.length-1]+'.png', folder + '/' + name + '.gif'], function (err, stdout) {
         if (err) throw err;
         render_callback()
