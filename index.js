@@ -6,8 +6,9 @@
 
 'use strict';
 
-var fs = require('fs'),
-  im = require('imagemagick')
+var fs = require('fs-extra'),
+  //im = require('imagemagick')
+  gm = require('gm')
 
 var render = (function () {
  
@@ -28,13 +29,33 @@ var render = (function () {
       name = split[split.length-1]
 
     fs.readdir(folder+'/png/', (err, items) => {
-      //'-limit', 'memory', '128mb', 
-      im.convert(['-loop', 1, '-delay', 100/30, folder+'/png/*.png', '-delay', 250, folder+'/png/'+items[items.length-1], folder + '/' + name + '.gif'], function (err, stdout) {
+
+      /*im.convert(['-limit', 'memory', '128mb', '-loop', 1, '-delay', 100/30, folder+'/png/*.png', '-delay', 250, folder+'/png/'+items[items.length-1], folder + '/' + name + '.gif'], function (err, stdout) {
         if (err) throw err;
         render_callback()
-      });
+      });*/
+
+      let last = parseInt((items[items.length-1].split('.'))[0])
+
+      for(let i = 0; i<50; i++){
+        fs.copySync(folder + '/png/' + items[items.length-1], folder + '/png/' + formatName(last+i) + '.png');
+      }
+
+      gm()
+        .in(folder + '/png/*.png')
+        .delay(100/30)
+        .loop(1)
+        .resize(500,500)
+        .write(folder + '/' + name + '.gif', function(err){
+          if (err) throw err;
+          render_callback()
+        });
     })
 
+  }
+
+  function formatName(n){
+    return ((n<100)?'0':'')+n
   }
 
   return module;
