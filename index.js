@@ -38,7 +38,7 @@ var render = (function () {
       let last = parseInt((items[items.length-1].split('.'))[0])
 
       for(let i = 0; i<50; i++){
-        fs.copySync(folder + '/png/' + items[items.length-1], folder + '/png/' + formatName(last+i) + '.png');
+        fs.copySync(folder + '/png/' + items[items.length-1], folder + '/png/' + formatName(last+i+1) + '.png');
       }
 
       gm()
