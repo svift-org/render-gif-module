@@ -36,16 +36,14 @@ var render = (function () {
       });*/
 
       let gif = gm()
-
-      for(let i = 0; i<items.length-1; i++){
-        gif.in(folder + '/png/' + items[i])
-          .delay(100/30)
-      }
-
-      gif.in(folder + '/png/' + items[items.length-1])
-        .delay(100)
+        .in('-delay')
+        .in(100/30)
+        .in(folder + '/png/*.png')
+        .in('-delay')
+        .in(200)
+        .in(folder + '/png/' + items[items.length-1])
         .loop(1)
-        .resize(500,500)
+        //.resize(500,500)
         .write(folder + '/' + name + '.gif', function(err){
           if (err) throw err;
           render_callback()
