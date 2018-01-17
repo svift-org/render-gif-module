@@ -35,15 +35,15 @@ var render = (function () {
         render_callback()
       });*/
 
-      let last = parseInt((items[items.length-1].split('.'))[0])
+      let gif = gm()
 
-      for(let i = 0; i<50; i++){
-        fs.copySync(folder + '/png/' + items[items.length-1], folder + '/png/' + formatName(last+i+1) + '.png');
+      for(let i = 0; i<items.length-1; i++){
+        gif.in(folder + '/png/' + items[i])
+          .delay(100/30)
       }
 
-      gm()
-        .in(folder + '/png/*.png')
-        .delay(100/30)
+      gif.in(folder + '/png/' + items[items.length-1])
+        .delay(100)
         .loop(1)
         .resize(500,500)
         .write(folder + '/' + name + '.gif', function(err){

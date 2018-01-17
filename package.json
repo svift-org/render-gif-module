@@ -16,6 +16,7 @@
   "dependencies": {
     "fs": "0.0.1-security",
     "fs-extra": "^5.0.0",
+    "gm": "^1.23.1",
     "imagemagick": "^0.1.3"
   }
 }
