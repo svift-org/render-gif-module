@@ -8,7 +8,7 @@
 
 var fs = require('fs-extra'),
   //im = require('imagemagick')
-  gm = require('gm').subClass({imageMagick: true})
+  gm = require('gm')
 
 var render = (function () {
  
@@ -35,8 +35,6 @@ var render = (function () {
         render_callback()
       });*/
 
-      let start = new Date().getTime()
-
       let gif = gm()
         .in('-delay')
         .in(100/30)
@@ -48,7 +46,6 @@ var render = (function () {
         //.resize(500,500)
         .write(folder + '/' + name + '.gif', function(err){
           if (err) throw err;
-          console.log('gif', (new Date().getTime())-start)
           render_callback()
         });
     })
